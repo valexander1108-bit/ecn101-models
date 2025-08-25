@@ -44,6 +44,6 @@ def app():
     price_dir = "↑" if p1>p0 else ("↓" if p1<p0 else "no change")
     qty_dir   = "↑" if q1>q0 else ("↓" if q1<q0 else "no change")
     st.markdown(f"**Price:** {price_dir} &nbsp; | &nbsp; **Quantity:** {qty_dir}")
-show_adv = st.toggle("Advanced (show equations)", value=False, key="ppc_adv")
+show_adv = st.toggle("Advanced (show equations)", value=False, key="single_shift_adv")
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text

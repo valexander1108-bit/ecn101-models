@@ -52,7 +52,7 @@ def app():
     )
     st.plotly_chart(fig, use_container_width=True,key="ppc_chart")
 
-    show_adv = st.toggle("Advanced (show equations)")
+    show_adv = st.toggle("Advanced (show equations)",key="ppc_adv")
     if show_adv:
         st.markdown(
             r"""
