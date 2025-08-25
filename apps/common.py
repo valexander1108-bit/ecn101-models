@@ -10,9 +10,11 @@ class Line:     # P = a + bQ
 def line_y(line: Line, q):
     return line.a + line.b*q
 
-def intersect(d: Line, s: Line):
-    # a_d + b_d Q = a_s + b_s Q
-    q_star = (d.a - s.a) / (s.b - d.b)
+def intersect(d, s):
+    den = (s.b - d.b)
+    if abs(den) < 1e-9:
+        return float("nan"), float("nan")
+    q_star = (d.a - s.a) / den
     p_star = line_y(d, q_star)
     return float(q_star), float(p_star)
 

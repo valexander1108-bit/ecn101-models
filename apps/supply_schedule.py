@@ -31,6 +31,15 @@ def app():
         add_line(fig, S, "Supply (fit)")
         st.plotly_chart(fig, use_container_width=True)
         st.caption(f"Estimated: **P = {S.a:.2f} + ({S.b:.3f})Q**  (β should be positive)")
-        show_adv = st.toggle("Advanced (show equations)", value=False)
+show_adv = st.toggle("Advanced (show equations)", value=False)
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text
+st.caption(f"Estimated: **P = {S.a:.2f} + ({S.b:.3f})Q**  (β should be positive)")
+
+# --- NEW: one-click send to Static Equilibrium ---
+if st.button("Send Supply α,β to Static Equilibrium", type="primary", use_container_width=True):
+    st.session_state["alpha_s"] = float(S.a)
+    st.session_state["beta_s"]  = float(S.b)
+    st.session_state["nav"] = "Static Equilibrium"
+    st.success("Supply coefficients sent. Opening Static Equilibrium…")
+    st.rerun()

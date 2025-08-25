@@ -36,3 +36,13 @@ def app():
 show_adv = st.toggle("Advanced (show equations)", value=False)
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text
+# Show fitted equation as you already do ...
+st.caption(f"Estimated: **P = {D.a:.2f} + ({D.b:.3f})Q**  (β should be negative)")
+
+# --- NEW: one-click send to Static Equilibrium ---
+if st.button("Send Demand α,β to Static Equilibrium", type="primary", use_container_width=True):
+    st.session_state["alpha_d"] = float(D.a)
+    st.session_state["beta_d"]  = float(D.b)
+    st.session_state["nav"] = "Static Equilibrium"
+    st.success("Demand coefficients sent. Opening Static Equilibrium…")
+    st.rerun()

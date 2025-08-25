@@ -40,6 +40,7 @@ def app():
     c1, c2 = st.columns(2)
     with c1: make_pane("Demand shift", D0, S0, xmax, ymax, "Demand")
     with c2: make_pane("Supply shift", D0, S0, xmax, ymax, "Supply")
-    show_adv = st.toggle("Advanced (show equations)", value=False)
+
+show_adv = st.toggle("Advanced (show equations)", value=False)
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text

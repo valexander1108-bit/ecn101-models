@@ -7,12 +7,13 @@ def app():
     ymax = st.sidebar.number_input("Max P", 10, 1000, 50, 5)
 
     st.sidebar.markdown("**Demand (β < 0)** — P = α + βQ")
-    ad = st.sidebar.number_input("α_d", value=30.0, step=1.0)
-    bd = st.sidebar.number_input("β_d", value=-0.2, step=0.05)
+    ad = st.sidebar.number_input("α_d", value=float(st.session_state.get("alpha_d", 30.0)), step=1.0)
+    bd = st.sidebar.number_input("β_d (negative)", value=float(st.session_state.get("beta_d", -0.2)), step=0.05, format="%.3f")
+
 
     st.sidebar.markdown("**Supply (β > 0)** — P = α + βQ")
-    as_ = st.sidebar.number_input("α_s", value=5.0, step=1.0)
-    bs = st.sidebar.number_input("β_s", value=0.1, step=0.05)
+    as_ = st.sidebar.number_input("α_s", value=float(st.session_state.get("alpha_s", 5.0)), step=1.0)
+    bs  = st.sidebar.number_input("β_s (positive)", value=float(st.session_state.get("beta_s", 0.1)), step=0.05, format="%.3f")
 
     D, S = Line(ad, bd), Line(as_, bs)
     q_star, p_star = intersect(D, S)
@@ -38,7 +39,9 @@ def app():
 
     st.plotly_chart(fig, use_container_width=True)
     st.markdown(f"**Equilibrium:** Q* = {q_star:.2f}, P* = {p_star:.2f}")
-    
-    show_adv = st.toggle("Advanced (show equations)", value=False)
+show_adv = st.toggle("Advanced (show equations)", value=False)
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text
+prefilled = any(k in st.session_state for k in ("alpha_d","beta_d","alpha_s","beta_s"))
+if prefilled:
+    st.caption("Loaded coefficients from a schedule page.")
