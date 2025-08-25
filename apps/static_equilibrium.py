@@ -23,9 +23,9 @@ def app():
 
     c1, c2 = st.columns(2)
     with c1:
-        hide_d = st.toggle("Hide Demand", value=False,key=d_hd)
+        hide_d = st.toggle("Hide Demand", value=False,key="d_hd")
     with c2:
-        hide_s = st.toggle("Hide Supply", value=False,key=s_hd)
+        hide_s = st.toggle("Hide Supply", value=False,key="s_hd")
 
     fig = base_fig(xmax=xmax, ymax=ymax)
     if not hide_d: add_line(fig, D, "Demand")
