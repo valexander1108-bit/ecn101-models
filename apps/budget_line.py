@@ -2,6 +2,8 @@ import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
 
+
+
 def app():
     st.subheader("Budget Constraint")
     with st.sidebar.expander("Budget Inputs", expanded=True):
@@ -24,3 +26,6 @@ def app():
     st.plotly_chart(fig, use_container_width=True)
 
     st.caption(f"Intercepts: X = {x_int:.2f}, Y = {y_int:.2f}  •  Slope = -pₓ/pᵧ = {-px/py:.3f}")
+show_adv = st.toggle("Advanced (show equations)", value=False)
+if show_adv:
+    st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text
