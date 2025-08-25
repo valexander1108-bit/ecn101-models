@@ -4,6 +4,14 @@ st.set_page_config(page_title="ECN101 Models", layout="wide")
 
 st.title("ECN101 — Interactive Models")
 st.caption("Budget Constraint • PPC • Comparative Advantage • (more coming)")
+options = [
+    "Budget Constraint","PPC","Comparative Advantage",
+    "Demand (schedule → line)","Supply (schedule → line)",
+    "Static Equilibrium","Shifts (single)","Shifts (double)",
+]
+default = st.session_state.get("nav_default", options[0])
+page = st.sidebar.radio("Go to:", options,
+                        index=options.index(default), key="nav")
 
 # --- Sidebar navigation ---
 page = st.sidebar.radio(

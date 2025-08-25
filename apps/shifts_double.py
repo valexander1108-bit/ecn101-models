@@ -20,7 +20,12 @@ def make_pane(title, D0, S0, xmax, ymax, which):
     add_line(fig, S1, "Supply")
     add_point(fig, q0, p0, "(Q0*,P0*)")
     add_point(fig, q1, p1, "(Q1*,P1*)")
-    st.plotly_chart(fig, use_container_width=True)
+    fig.update_layout(
+    showlegend=False,            # hide legend ("keys")
+    height=560,                  # a bit taller
+    margin=dict(l=40, r=20, t=20, b=40)
+    )
+    st.plotly_chart(fig, use_container_width=True,key=f"{title}_chart")
 
     price_dir = "↑" if p1>p0 else ("↓" if p1<p0 else "ambiguous/no change")
     qty_dir   = "↑" if q1>q0 else ("↓" if q1<q0 else "ambiguous/no change")
@@ -41,6 +46,6 @@ def app():
     with c1: make_pane("Demand shift", D0, S0, xmax, ymax, "Demand")
     with c2: make_pane("Supply shift", D0, S0, xmax, ymax, "Supply")
 
-show_adv = st.toggle("Advanced (show equations)", value=False)
+show_adv = st.toggle("Advanced (show equations)", value=False, key="shifts_double_adv")
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text

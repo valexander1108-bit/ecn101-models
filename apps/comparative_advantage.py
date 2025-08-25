@@ -65,7 +65,6 @@ def app():
     fig.add_trace(go.Scatter(x=xsB, y=ysB, mode="lines", name="B: PPC"))
     fig.add_trace(go.Scatter(x=[A_prod[0]], y=[A_prod[1]], mode="markers+text", text=["A prod"], textposition="top center"))
     fig.add_trace(go.Scatter(x=[B_prod[0]], y=[B_prod[1]], mode="markers+text", text=["B prod"], textposition="top center"))
-
     if show_trade:
         xs, ys = trade_line_through(A_prod, Xmax_all, Ymax_all, px_over_py)
         fig.add_trace(go.Scatter(x=xs, y=ys, mode="lines", name="A trade line", line=dict(dash="dot")))
@@ -78,7 +77,7 @@ def app():
         yaxis=dict(range=[0, Ymax_all], zeroline=False),
         height=520, margin=dict(l=40, r=20, t=20, b=40)
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True,key="ca_chart")
 
     st.markdown(
         f"""
@@ -88,7 +87,7 @@ def app():
         """
     )
 
-    show_adv = st.toggle("Advanced (show equations)")
+    show_adv = st.toggle("Advanced (show equations)", key="comp_ad_adv")
     if show_adv:
         st.latex(r" \text{PPC}_A: \; y = a_y - \frac{a_y}{a_x} x \quad;\quad \text{PPC}_B: \; y = b_y - \frac{b_y}{b_x} x ")
         st.latex(r" \text{OC}_X^A = \frac{a_y}{a_x}, \quad \text{OC}_X^B = \frac{b_y}{b_x} \;\;\Rightarrow\;\; \text{CA in X} = \arg\min \text{OC}_X ")

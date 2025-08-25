@@ -23,9 +23,9 @@ def app():
     fig.update_yaxes(range=[0, ymax], title="Good Y")
     fig.update_layout(height=500, margin=dict(l=10, r=10, t=10, b=10))
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True,key="bud_line_chart")
 
     st.caption(f"Intercepts: X = {x_int:.2f}, Y = {y_int:.2f}  •  Slope = -pₓ/pᵧ = {-px/py:.3f}")
-show_adv = st.toggle("Advanced (show equations)", value=False)
+show_adv = st.toggle("Advanced (show equations)", value=False, key="ppc_adv")
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text

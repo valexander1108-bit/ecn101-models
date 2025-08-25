@@ -32,18 +32,18 @@ def app():
     fig = base_fig(xmax=xmax, ymax=ymax)
     add_line(fig, D0, "Demand (baseline)", dash="dash")
     add_line(fig, S0, "Supply (baseline)",  dash="dash")
-    add_line(fig, D1, "Demand", None, None) if which=="Demand" else add_line(fig, D1, "Demand")
-    add_line(fig, S1, "Supply", None, None)
+    add_line(fig, D1, "Demand", ) 
+    add_line(fig, S1, "Supply", )
     add_point(fig, q0, p0, "(Q0*,P0*)")
     add_point(fig, q1, p1, "(Q1*,P1*)")
     fig.add_annotation(x=0.75*xmax, y=0.9*ymax, text=tag, showarrow=False)
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True, key="shift_single_chart")
 
     # Direction summary
     price_dir = "↑" if p1>p0 else ("↓" if p1<p0 else "no change")
     qty_dir   = "↑" if q1>q0 else ("↓" if q1<q0 else "no change")
     st.markdown(f"**Price:** {price_dir} &nbsp; | &nbsp; **Quantity:** {qty_dir}")
-show_adv = st.toggle("Advanced (show equations)", value=False)
+show_adv = st.toggle("Advanced (show equations)", value=False, key="ppc_adv")
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text

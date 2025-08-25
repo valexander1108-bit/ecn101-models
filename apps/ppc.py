@@ -50,7 +50,7 @@ def app():
         yaxis=dict(range=[0, max(b, b_shift)], zeroline=False),
         height=520, margin=dict(l=40, r=20, t=20, b=40)
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True,key="ppc_chart")
 
     show_adv = st.toggle("Advanced (show equations)")
     if show_adv:
@@ -62,7 +62,7 @@ def app():
             """
         )
     st.caption(f"At X = {qx:.2f}, Y = {y1:.2f}.  Opportunity cost of 1 more X ≈ {oc_x:.3f} Y (rising as X increases when k>1).")
-    show_adv = st.toggle("Advanced (show equations)")
+    show_adv = st.toggle("Advanced (show equations)", key="ppc_adv")
     if show_adv:
         st.latex(r" \text{PPC}_A: \; y = a_y - \frac{a_y}{a_x} x \quad;\quad \text{PPC}_B: \; y = b_y - \frac{b_y}{b_x} x ")
         st.latex(r" \text{OC}_X^A = \frac{a_y}{a_x}, \quad \text{OC}_X^B = \frac{b_y}{b_x} \;\;\Rightarrow\;\; \text{CA in X} = \arg\min \text{OC}_X ")

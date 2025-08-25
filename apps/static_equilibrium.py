@@ -36,10 +36,22 @@ def app():
     elif st.session_state.prev_eq:
         q0, p0 = st.session_state.prev_eq
         add_point(fig, q0, p0, "previous equilibrium")
+    from math import isnan
+    if (not hide_d) and (not hide_s) and (not (isnan(q_star) or isnan(p_star))):
+    # dashed guide lines to axes
+        fig.add_shape(type="line", x0=q_star, y0=0, x1=q_star, y1=p_star,
+                  line=dict(dash="dot", width=1))
+        fig.add_shape(type="line", x0=0, y0=p_star, x1=q_star, y1=p_star,
+                  line=dict(dash="dot", width=1))
+    # axis labels for Q* and P*
+        fig.add_annotation(x=q_star, y=0, text=f"Q*={q_star:.2f}",
+                       showarrow=False, yshift=-10)
+        fig.add_annotation(x=0, y=p_star, text=f"P*={p_star:.2f}",
+                       showarrow=False, xshift=-20)
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True,key="eq_chart")
     st.markdown(f"**Equilibrium:** Q* = {q_star:.2f}, P* = {p_star:.2f}")
-show_adv = st.toggle("Advanced (show equations)", value=False)
+show_adv = st.toggle("Advanced (show equations)", value=False, key="stat_equ__adv")
 if show_adv:
     st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text
 prefilled = any(k in st.session_state for k in ("alpha_d","beta_d","alpha_s","beta_s"))

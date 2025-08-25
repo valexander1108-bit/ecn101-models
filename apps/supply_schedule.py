@@ -4,6 +4,7 @@ from apps.common import Line, base_fig, add_line
 
 def app():
     st.subheader("Supply — Build from Schedule (P = α + βQ, β > 0)")
+
     colA, colB = st.columns([1,2])
 
     with colA:
@@ -17,6 +18,7 @@ def app():
         xmax = st.number_input("Max Q", 10, 1000, 100, 10)
         ymax = st.number_input("Max P", 10, 1000, 50, 5)
 
+    # Fit P = a + bQ from the table
     if len(df) >= 2:
         Q = df["Q"].astype(float).values
         P = df["P"].astype(float).values
@@ -29,17 +31,13 @@ def app():
     with colB:
         fig = base_fig(xmax=xmax, ymax=ymax)
         add_line(fig, S, "Supply (fit)")
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True,key="sup_chart")
         st.caption(f"Estimated: **P = {S.a:.2f} + ({S.b:.3f})Q**  (β should be positive)")
-show_adv = st.toggle("Advanced (show equations)", value=False)
-if show_adv:
-    st.latex(r"P = \alpha + \beta Q")   # or st.markdown(...) for text
-st.caption(f"Estimated: **P = {S.a:.2f} + ({S.b:.3f})Q**  (β should be positive)")
 
-# --- NEW: one-click send to Static Equilibrium ---
-if st.button("Send Supply α,β to Static Equilibrium", type="primary", use_container_width=True):
-    st.session_state["alpha_s"] = float(S.a)
-    st.session_state["beta_s"]  = float(S.b)
-    st.session_state["nav"] = "Static Equilibrium"
-    st.success("Supply coefficients sent. Opening Static Equilibrium…")
-    st.rerun()
+    # --- Send fitted coefficients to Static Equilibrium ---
+    if st.button("Send Supply α,β to Static Equilibrium", type="primary", use_container_width=True):
+        st.session_state["alpha_s"] = float(S.a)
+        st.session_state["beta_s"]  = float(S.b)
+        st.session_state["nav_default"] = "Static Equilibrium"
+        st.success("Supply coefficients sent. Opening Static Equilibrium…")
+        st.rerun()
