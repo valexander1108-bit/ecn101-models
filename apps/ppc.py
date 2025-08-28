@@ -6,7 +6,7 @@ def app():
     st.subheader("Production Possibilities Curve (PPC)")
 
     # --- Sidebar controls ---
-    with st.sidebar.expander("Frontier settings", True):
+    with st.sidebar.expander("Frontier Settings", True):
         x_max = st.number_input("Max output of Good X (intercept a)", 10.0, 10_000.0, 100.0, 5.0)
         y_max = st.number_input("Max output of Good Y (intercept b)", 10.0, 10_000.0, 100.0, 5.0)
         k = st.slider("Curvature (k)", 1.0, 6.0, 2.5, 0.1)  # k=1 linear; k>1 bowed out

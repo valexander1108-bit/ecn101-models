@@ -3,19 +3,19 @@ import streamlit as st
 import plotly.graph_objects as go
 
 def app():
-    st.subheader("Comparative Advantage — Linear PPCs for Two Countries")
+    st.subheader("Comparative Advantage — Linear PPCs for Two Producers")
 
-    with st.sidebar.expander("Country A — intercepts", True):
+    with st.sidebar.expander("Producer A ", False):
         Ax = st.number_input("A: Max X (a_x)", 10.0, 10_000.0, 100.0, 5.0)
         Ay = st.number_input("A: Max Y (a_y)", 10.0, 10_000.0, 100.0, 5.0)
 
-    with st.sidebar.expander("Country B — intercepts", True):
+    with st.sidebar.expander("Producer B ", False):
         Bx = st.number_input("B: Max X (b_x)", 10.0, 10_000.0, 60.0, 5.0)
         By = st.number_input("B: Max Y (b_y)", 10.0, 10_000.0, 140.0, 5.0)
 
-    with st.sidebar.expander("Trade line", True):
+    with st.sidebar.expander("Analyze Trade & World Price", False):
         px_over_py = st.number_input("World relative price Px/Py (slope = -Px/Py)", 0.01, 100.0, 0.8, 0.05)
-        show_trade = st.checkbox("Show trade lines through production points", value=True)
+        show_trade = st.checkbox("Show trade lines through production points", value=False)
 
     # Linear PPCs:  y = Ymax - (Ymax/Xmax) * x
     def ppc_line(Xmax, Ymax, x):
@@ -35,12 +35,13 @@ def app():
     ca_Y = "B" if ca_X == "A" else "A"
 
     # Specialization sliders (0..1 of the CA good)
-    st.markdown("### Production with/without specialization")
+    st.markdown("### Specialization Level:")
     col1, col2 = st.columns(2)
     with col1:
-        sA = st.slider("Country A: fraction specializing in its CA good", 0.0, 1.0, 1.0, 0.05)
+        sA = st.slider("Producer A", 0.0, 1.0, 1.0, 0.05)
     with col2:
-        sB = st.slider("Country B: fraction specializing in its CA good", 0.0, 1.0, 1.0, 0.05)
+        sB = st.slider("Producer B", 0.0, 1.0, 1.0, 0.05)
+        
 
     # Production points (on intercept of the CA good)
     if ca_X == "A":

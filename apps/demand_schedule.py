@@ -3,18 +3,19 @@ import pandas as pd
 from apps.common import Line, base_fig, add_line
 
 def app():
-    st.subheader("Demand — Build from Schedule (P = α + βQ, β < 0)")
+    st.subheader("Build the Demand Curve")
 
     colA, colB = st.columns([1,2])
 
     with colA:
-        st.caption("Enter a few (Q,P) points (at least two).")
+        st.caption("Enter Data:")
         df = st.data_editor(
             pd.DataFrame({"Q":[10,30,50], "P":[28,20,12]}),
             num_rows="dynamic",
             use_container_width=True,
             key="dem_sched",
         )
+        st.caption("Adjust Scale:")
         xmax = st.number_input("Max Q", 10, 1000, 100, 10)
         ymax = st.number_input("Max P", 10, 1000, 50, 5)
 
@@ -35,7 +36,7 @@ def app():
         st.caption(f"Estimated: **P = {D.a:.2f} + ({D.b:.3f})Q**  (β should be negative)")
 
     # --- Send fitted coefficients to Static Equilibrium ---
-    if st.button("Send Demand α,β to Static Equilibrium", type="primary", use_container_width=True):
+    if st.button("Send Demand Curve to Market Model", type="primary", use_container_width=True):
         st.session_state["alpha_d"] = float(D.a)
         st.session_state["beta_d"]  = float(D.b)
         st.session_state["nav_default"] = "Static Equilibrium"

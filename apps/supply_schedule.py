@@ -3,18 +3,19 @@ import pandas as pd
 from apps.common import Line, base_fig, add_line
 
 def app():
-    st.subheader("Supply — Build from Schedule (P = α + βQ, β > 0)")
+    st.subheader("Build the Supply Curve")
 
     colA, colB = st.columns([1,2])
 
     with colA:
-        st.caption("Enter a few (Q,P) points (at least two).")
+        st.caption("Enter Data:")
         df = st.data_editor(
             pd.DataFrame({"Q":[10,30,50], "P":[8,15,24]}),
             num_rows="dynamic",
             use_container_width=True,
             key="sup_sched",
         )
+        st.caption("Adjust Scale:")
         xmax = st.number_input("Max Q", 10, 1000, 100, 10)
         ymax = st.number_input("Max P", 10, 1000, 50, 5)
 
@@ -35,7 +36,7 @@ def app():
         st.caption(f"Estimated: **P = {S.a:.2f} + ({S.b:.3f})Q**  (β should be positive)")
 
     # --- Send fitted coefficients to Static Equilibrium ---
-    if st.button("Send Supply α,β to Static Equilibrium", type="primary", use_container_width=True):
+    if st.button("Send Supply Curve to Market Model", type="primary", use_container_width=True):
         st.session_state["alpha_s"] = float(S.a)
         st.session_state["beta_s"]  = float(S.b)
         st.session_state["nav_default"] = "Static Equilibrium"
