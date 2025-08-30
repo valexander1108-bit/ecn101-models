@@ -93,22 +93,24 @@ elif page == "Single Shifts":
 elif page == "Double Shifts":
     from apps.shifts_double import app as sd_app; sd_app()
 elif page == "Price Elasticity of Demand":
-    from apps.elasticity_demand import app as sur_app; sur_app()
+    from apps.elasticity_demand import app as ed_app; ed_app()
 elif page == "Elasticity and Total Revenue":
-    from apps.elasticity_tr import app as sur_app; sur_app()
+    from apps.elasticity_tr import app as etr_app; etr_app()
 elif page == "Price Elasticity of Supply":
-    from apps.elasticity_supply import app as sur_app; sur_app()
+    from apps.elasticity_supply import app as es_app; es_app()
+elif page == "Surlpus":
+    from apps.surplus import app as sur_app; sur_app()
 elif page == "Government Intervention: Price Floor":
-    from apps.gov_int_p_floor import app as sur_app; sur_app()
+    from apps.gov_int_p_floor import app as sur_app; floor_app()
 elif page == "Government Intervention: Price Ceiling":
-    from apps.gov_int_p_ceiling import app as sur_app; sur_app()
+    from apps.gov_int_p_ceiling import app as sur_app; ceiling_app()
 elif page == "Deadweight Loss":
-    from apps.deadweight import app as sur_app; sur_app()
+    from apps.deadweight import app as dw_app; dw_app()
 elif page == "Interdependent Factors":
-    from apps.all_factors import app as sur_app; sur_app()
+    from apps.all_factors import app as fact_app; fact_app()
 elif page == "Land + Rent":
-    from apps.land import app as sur_app; sur_app()
+    from apps.land import app as sur_app; lan_app()
 elif page == "Labor + Wage":
-    from apps.labor import app as sur_app; sur_app()
+    from apps.labor import app as sur_app; lab_app()
 elif page == "Capital + Interest":
-    from apps.capital import app as sur_app; sur_app()
+    from apps.capital import app as sur_app; cap_app()
