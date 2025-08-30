@@ -9,7 +9,6 @@ from apps.common import Line, base_fig, add_point, intersect
 # Geometry: make lines span the full axes box
 # ───────────────────────────
 EPS = 1e-12
-
 def clip_line_to_box(m, b, xmin, xmax, ymin, ymax):
     """
     Clip the infinite line y = m*x + b to the axes-aligned box [xmin,xmax]×[ymin,ymax].
