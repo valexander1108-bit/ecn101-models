@@ -104,11 +104,7 @@ def add_producer_surplus(fig, a_s, b_s, q_star, p_star, color="rgba(255, 152, 0,
         ))
         return 0.5 * (p_star - p_s0) * q_star
     return 0.0
-
-
-# ───────────────────────────
-# App
-# ───────────────────────────
+# ──────────────────────────
 def app():
     st.subheader("Shifts — Demand or Supply (single curve)")
 

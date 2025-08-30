@@ -101,16 +101,16 @@ elif page == "Price Elasticity of Supply":
 elif page == "Surlpus":
     from apps.surplus import app as sur_app; sur_app()
 elif page == "Government Intervention: Price Floor":
-    from apps.gov_int_p_floor import app as sur_app; floor_app()
+    from apps.gov_int_p_floor import app as floor_app; floor_app()
 elif page == "Government Intervention: Price Ceiling":
-    from apps.gov_int_p_ceiling import app as sur_app; ceiling_app()
+    from apps.gov_int_p_ceiling import app as ceiling_app; ceiling_app()
 elif page == "Deadweight Loss":
     from apps.deadweight import app as dw_app; dw_app()
 elif page == "Interdependent Factors":
     from apps.all_factors import app as fact_app; fact_app()
 elif page == "Land + Rent":
-    from apps.land import app as sur_app; lan_app()
+    from apps.land import app as lan_app; lan_app()
 elif page == "Labor + Wage":
-    from apps.labor import app as sur_app; lab_app()
+    from apps.labor import app as lab_app; lab_app()
 elif page == "Capital + Interest":
-    from apps.capital import app as sur_app; cap_app()
+    from apps.capital import app as cap_app; cap_app()
