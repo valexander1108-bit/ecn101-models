@@ -4,7 +4,11 @@ import streamlit as st
 options = [
     "Budget Constraint","PPC","Comparative Advantage",
     "Demand (schedule → line)","Supply (schedule → line)",
-    "Static Equilibrium","Shifts (single)","Shifts (double)","Surplus"
+    "Static Equilibrium","Shifts (single)","Shifts (double)",
+    "Price Elasticity of Demand","Elasticity and Total Revenue","Price Elasticity of Supply", 
+    "Surplus","Government Intervention: Price Floor","Government Intervention: Price Ceiling",
+    "Deadweight Loss", "Interdependent Factors", "Land + Rent",
+    "Labor + Wage","Capital + Interest", 
 ]
 import streamlit as st
 
@@ -88,5 +92,23 @@ elif page == "Single Shifts":
     from apps.shifts_single import app as ss_app; ss_app()
 elif page == "Double Shifts":
     from apps.shifts_double import app as sd_app; sd_app()
-elif page == "Welfare Economics":
-    from apps.surplus import app as sur_app; sur_app()
+elif page == "Price Elasticity of Demand":
+    from apps.elasticity_demand import app as sur_app; sur_app()
+elif page == "Elasticity and Total Revenue":
+    from apps.elasticity_tr import app as sur_app; sur_app()
+elif page == "Price Elasticity of Supply":
+    from apps.elasticity_supply import app as sur_app; sur_app()
+elif page == "Government Intervention: Price Floor":
+    from apps.gov_int_p_floor import app as sur_app; sur_app()
+elif page == "Government Intervention: Price Ceiling":
+    from apps.gov_int_p_ceiling import app as sur_app; sur_app()
+elif page == "Deadweight Loss":
+    from apps.deadweight import app as sur_app; sur_app()
+elif page == "Interdependent Factors":
+    from apps.all_factors import app as sur_app; sur_app()
+elif page == "Land + Rent":
+    from apps.land import app as sur_app; sur_app()
+elif page == "Labor + Wage":
+    from apps.labor import app as sur_app; sur_app()
+elif page == "Capital + Interest":
+    from apps.capital import app as sur_app; sur_app()
