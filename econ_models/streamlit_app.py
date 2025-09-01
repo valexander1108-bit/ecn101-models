@@ -77,40 +77,40 @@ st.session_state.pop("nav_default", None)
 st.session_state.pop("nav_default", None)
 
 if page == "Budget Constraint":
-    from apps.budget_line import app as budget_app; budget_app()
+    from pages.budget_line import app as budget_app; budget_app()
 elif page == "PPC":
-    from apps.ppc import app as ppc_app; ppc_app()
+    from pages.ppc import app as ppc_app; ppc_app()
 elif page == "Comparative Advantage":
-    from apps.comparative_advantage import app as ca_app; ca_app()
+    from pages.comparative_advantage import app as ca_app; ca_app()
 elif page == "Demand (schedule → line)":
-    from apps.demand_schedule import app as dem_app; dem_app()
+    from pages.demand_schedule import app as dem_app; dem_app()
 elif page == "Supply (schedule → line)":
-    from apps.supply_schedule import app as sup_app; sup_app()
+    from pages.supply_schedule import app as sup_app; sup_app()
 elif page == "Market Model":
-    from apps.static_equilibrium import app as se_app; se_app()
+    from pages.static_equilibrium import app as se_app; se_app()
 elif page == "Single Shifts":
-    from apps.shifts_single import app as ss_app; ss_app()
+    from pages.shifts_single import app as ss_app; ss_app()
 elif page == "Double Shifts":
-    from apps.shifts_double import app as sd_app; sd_app()
+    from pages.shifts_double import app as sd_app; sd_app()
 elif page == "Price Elasticity of Demand":
-    from apps.elasticity_demand import app as ed_app; ed_app()
+    from pages.elasticity_demand import app as ed_app; ed_app()
 elif page == "Elasticity and Total Revenue":
-    from apps.elasticity_tr import app as etr_app; etr_app()
+    from pages.elasticity_tr import app as etr_app; etr_app()
 elif page == "Price Elasticity of Supply":
-    from apps.elasticity_supply import app as es_app; es_app()
+    from pages.elasticity_supply import app as es_app; es_app()
 elif page == "Surlpus":
-    from apps.surplus import app as sur_app; sur_app()
+    from pages.surplus import app as sur_app; sur_app()
 elif page == "Government Intervention: Price Floor":
-    from apps.gov_int_p_floor import app as floor_app; floor_app()
+    from pages.gov_int_p_floor import app as floor_app; floor_app()
 elif page == "Government Intervention: Price Ceiling":
-    from apps.gov_int_p_ceiling import app as ceiling_app; ceiling_app()
+    from pages.gov_int_p_ceiling import app as ceiling_app; ceiling_app()
 elif page == "Deadweight Loss":
-    from apps.deadweight import app as dw_app; dw_app()
+    from pages.deadweight import app as dw_app; dw_app()
 elif page == "Interdependent Factors":
-    from apps.all_factors import app as fact_app; fact_app()
+    from pages.all_factors import app as fact_app; fact_app()
 elif page == "Land + Rent":
-    from apps.land import app as lan_app; lan_app()
+    from pages.land import app as lan_app; lan_app()
 elif page == "Labor + Wage":
-    from apps.labor import app as lab_app; lab_app()
+    from pages.labor import app as lab_app; lab_app()
 elif page == "Capital + Interest":
-    from apps.capital import app as cap_app; cap_app()
+    from pages.capital import app as cap_app; cap_app()

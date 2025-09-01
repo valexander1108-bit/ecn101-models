@@ -1,0 +1,29 @@
+[
+  {
+    "id": "econ_mesopotamia",
+    "module": "Module 1 — Modeling Foundations",
+    "page": "Budget Constraint",
+    "scenario": "Mesopotamian Farmer (2000 BCE)",
+    "year": -2000,
+    "lat": 33.2232,
+    "lon": 43.6793
+  },
+  {
+    "id": "econ_greece_maurya",
+    "module": "Module 1 — Modeling Foundations",
+    "page": "Comparative Advantage",
+    "scenario": "Greece ↔ Maurya Traders (350 BCE)",
+    "year": -350,
+    "lat": 37.9838,
+    "lon": 23.7275
+  },
+  {
+    "id": "econ_sogdian",
+    "module": "Module 2 — Supply & Demand",
+    "page": "Demand (schedule → line)",
+    "scenario": "Sogdian Trader (435 CE)",
+    "year": 435,
+    "lat": 39.6500,
+    "lon": 66.9750
+  }
+]
