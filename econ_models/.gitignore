@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+*.pyo
+*.pyd
+*.pkl
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# VS Code
+.vscode/
+.code-workspace
+
+# macOS / system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Logs & outputs
+*.log
+*.tmp
+*.out
+*.err
+
+# Build / packaging
+build/
+dist/
+.eggs/
+*.manifest
+*.spec
+
+# Streamlit cache
+.streamlit/
+
+# Environment / dependencies
+*.lock
+poetry.lock
+Pipfile.lock
